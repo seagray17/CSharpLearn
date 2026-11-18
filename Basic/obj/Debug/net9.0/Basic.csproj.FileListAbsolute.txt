@@ -1,0 +1,14 @@
+C:\KSY\GameProgram\CSharpLearn\Basic\bin\Debug\net9.0\Basic.exe
+C:\KSY\GameProgram\CSharpLearn\Basic\bin\Debug\net9.0\Basic.deps.json
+C:\KSY\GameProgram\CSharpLearn\Basic\bin\Debug\net9.0\Basic.runtimeconfig.json
+C:\KSY\GameProgram\CSharpLearn\Basic\bin\Debug\net9.0\Basic.dll
+C:\KSY\GameProgram\CSharpLearn\Basic\bin\Debug\net9.0\Basic.pdb
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.GeneratedMSBuildEditorConfig.editorconfig
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.AssemblyInfoInputs.cache
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.AssemblyInfo.cs
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.csproj.CoreCompileInputs.cache
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.dll
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\refint\Basic.dll
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.pdb
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.genruntimeconfig.cache
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\ref\Basic.dll
