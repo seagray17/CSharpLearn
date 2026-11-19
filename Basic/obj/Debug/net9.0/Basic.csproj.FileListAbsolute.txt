@@ -12,3 +12,4 @@ C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\refint\Basic.dll
 C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.pdb
 C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.genruntimeconfig.cache
 C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\ref\Basic.dll
+C:\KSY\GameProgram\CSharpLearn\Basic\obj\Debug\net9.0\Basic.sourcelink.json
