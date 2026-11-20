@@ -20,6 +20,9 @@ namespace Basic
 {
     internal class 데이터의_흐름 
     {
+        // 언더테일
+        // 너 몇번쨰 죽었구나.
+        // 너 죽음 수 1번일때 2번일때 3번일때 4번일때 deathcount == 1 2 3 4 5 6
         static void Main()
         {
             // if ,else if, if
