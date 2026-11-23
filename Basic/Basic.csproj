@@ -10,10 +10,12 @@
   <ItemGroup>
     <Compile Remove="Program.cs" />
     <Compile Remove="데이터의 흐름.cs" />
+    <Compile Remove="메인.cs" />
     <Compile Remove="반복문.cs" />
     <Compile Remove="배열.cs" />
     <Compile Remove="상수와열거형.cs" />
     <Compile Remove="열거를활용한게임예제.cs" />
+    <Compile Remove="클래스메인.cs" />
   </ItemGroup>
 
 </Project>
