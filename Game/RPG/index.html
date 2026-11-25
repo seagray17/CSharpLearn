@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>OOP 판타지 RPG 전투</title>
+    <style>
+        body {
+            font-family: 'Malgun Gothic', sans-serif;
+            background-color: #1e1e2e;
+            color: #cdd6f4;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            margin: 0;
+        }
+        h1 { color: #f9e2af; margin-bottom: 10px; }
+        .container {
+            display: flex;
+            gap: 20px;
+            max-width: 900px;
+            width: 100%;
+        }
+        .panel {
+            background-color: #313244;
+            padding: 20px;
+            border-radius: 10px;
+            flex: 1;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .entity-card {
+            background-color: #45475a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border-left: 5px solid #89b4fa;
+        }
+        .entity-card.dead {
+            opacity: 0.5;
+            border-left-color: #f38ba8;
+        }
+        .entity-card.prop {
+            border-left-color: #a6e3a1;
+        }
+        .hp-bar {
+            background-color: #11111b;
+            height: 12px;
+            border-radius: 6px;
+            overflow: hidden;
+            margin: 8px 0;
+        }
+        .hp-fill {
+            background-color: #a6e3a1;
+            height: 100%;
+            transition: width 0.3s;
+        }
+        .hp-fill.enemy { background-color: #f38ba8; }
+        button {
+            background-color: #89b4fa;
+            color: #11111b;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-right: 5px;
+            margin-top: 5px;
+        }
+        button:hover { background-color: #b4befe; }
+        button:disabled { background-color: #6c7086; cursor: not-allowed; }
+        button.skill { background-color: #f9e2af; }
+        button.interact { background-color: #a6e3a1; }
+        #log-box {
+            width: 100%;
+            max-width: 860px;
+            height: 200px;
+            background-color: #11111b;
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+        .log-damage { color: #f38ba8; }
+        .log-heal { color: #a6e3a1; }
+        .log-info { color: #89b4fa; }
+    </style>
+</head>
+<body>
+
+    <h1>⚔️ OOP 다형성 판타지 RPG</h1>
+    <div style="margin-bottom: 15px;">
+        <button onclick="selectHero('Warrior')">전사(Warrior)로 시작</button>
+        <button onclick="selectHero('Mage')">마법사(Mage)로 시작</button>
+    </div>
+
+    <div class="container">
+        <!-- 아군 패널 -->
+        <div class="panel">
+            <h2>🛡️ 영웅 (Hero)</h2>
+            <div id="hero-area"></div>
+        </div>
+
+        <!-- 적 및 오브젝트 패널 -->
+        <div class="panel">
+            <h2>👹 전장 대상 (Monsters & Props)</h2>
+            <div id="field-area"></div>
+        </div>
+    </div>
+
+    <div id="log-box"></div>
+
+    <script>
+        // ==========================================
+        // 1. 인터페이스 정의 (규약 강제)
+        // ==========================================
+        class IDamageable {
+            takeDamage(amount) {
+                throw new Error("IDamageable.takeDamage() 메서드를 구현해야 합니다.");
+            }
+        }
+
+        class IInteractable {
+            interact(actor) {
+                throw new Error("IInteractable.interact() 메서드를 구현해야 합니다.");
+            }
+        }
+
+        // 인터페이스 구현 여부 검사 헬퍼 (다형성 타입 체크)
+        function implementsInterface(obj, interfaceClass) {
+            const methods = Object.getOwnPropertyNames(interfaceClass.prototype)
+                .filter(m => m !== 'constructor');
+            return methods.every(method => typeof obj[method] === 'function');
+        }
+
+        // ==========================================
+        // 2. 추상 클래스 정의
+        // ==========================================
+        
+        /** [추상 클래스] Character: 모든 생명체의 기본 (IDamageable 구현) */
+        class Character extends IDamageable {
+            constructor(name, maxHp, attackPower) {
+                super();
+                if (new.target === Character) {
+                    throw new Error("추상 클래스 Character는 직접 인스턴스화할 수 없습니다.");
+                }
+                this.name = name;
+                this.maxHp = maxHp;
+                this.hp = maxHp;
+                this.attackPower = attackPower;
+            }
+
+            isAlive() {
+                return this.hp > 0;
+            }
+
+            // IDamageable 구현
+            takeDamage(amount) {
+                if (!this.isAlive()) return;
+                this.hp = Math.max(0, this.hp - amount);
+                log(`💥 [${this.name}]이(가) ${amount}의 피해를 입었습니다! (남은 HP: ${this.hp}/${this.maxHp})`, 'log-damage');
+                if (!this.isAlive()) {
+                    log(`💀 [${this.name}]이(가) 쓰러졌습니다!`, 'log-damage');
+                }
+            }
+
+            heal(amount) {
+                if (!this.isAlive()) return;
+                this.hp = Math.min(this.maxHp, this.hp + amount);
+                log(`💚 [${this.name}]의 체력이 ${amount} 회복되었습니다! (현재 HP: ${this.hp}/${this.maxHp})`, 'log-heal');
+            }
+
+            // 다형성 공격: 대상이 IDamageable을 구현했다면 무엇이든 공격 가능
+            attack(target) {
+                if (!this.isAlive()) return;
+                if (implementsInterface(target, IDamageable)) {
+                    log(`⚔️ [${this.name}]이(가) [${target.name}]을(를) 기본 공격합니다!`);
+                    target.takeDamage(this.attackPower);
+                } else {
+                    log(`❌ [${target.name}]은(는) 공격할 수 없는 대상입니다.`, 'log-info');
+                }
+            }
+        }
+
+        /** [추상 클래스] Hero: 플레이어가 조종하는 영웅 (Character 상속) */
+        class Hero extends Character {
+            constructor(name, maxHp, attackPower, skillName) {
+                super(name, maxHp, attackPower);
+                if (new.target === Hero) {
+                    throw new Error("추상 클래스 Hero는 직접 인스턴스화할 수 없습니다.");
+                }
+                this.skillName = skillName;
+            }
+
+            // 하위 클래스에서 반드시 오버라이딩해야 하는 추상 메서드
+            useSkill(target) {
+                throw new Error("Hero의 하위 클래스는 useSkill()을 구현해야 합니다.");
+            }
+        }
+
+        /** [추상 클래스] Prop: 전장에 배치되는 사물/오브젝트 */
+        class Prop {
+            constructor(name, description) {
+                if (new.target === Prop) {
+                    throw new Error("추상 클래스 Prop은 직접 인스턴스화할 수 없습니다.");
+                }
+                this.name = name;
+                this.description = description;
+            }
+        }
+
+        // ==========================================
+        // 3. 구체 클래스 구현 (다형성 실현)
+        // ==========================================
+
+        /** 구체 영웅 1: 전사 */
+        class Warrior extends Hero {
+            constructor(name) {
+                super(name, 150, 20, "강타 (피해량 2배 + 흡혈)");
+            }
+
+            useSkill(target) {
+                if (!implementsInterface(target, IDamageable)) return;
+                const dmg = this.attackPower * 2;
+                log(`🔥 [${this.name}]의 스킬 발동! '${this.skillName}' -> [${target.name}]`, 'log-info');
+                target.takeDamage(dmg);
+                this.heal(10);
+            }
+        }
+
+        /** 구체 영웅 2: 마법사 */
+        class Mage extends Hero {
+            constructor(name) {
+                super(name, 90, 12, "파이어볼 (강력한 마법 피해)");
+            }
+
+            useSkill(target) {
+                if (!implementsInterface(target, IDamageable)) return;
+                const dmg = 45;
+                log(`☄️ [${this.name}]의 스킬 발동! '${this.skillName}' -> [${target.name}]`, 'log-info');
+                target.takeDamage(dmg);
+            }
+        }
+
+        /** 구체 몬스터 (Character 상속 + IInteractable 구현) */
+        class Monster extends Character {
+            constructor(name, maxHp, attackPower) {
+                super(name, maxHp, attackPower);
+            }
+
+            // 몬스터도 상호작용(대화/도발)이 가능하도록 IInteractable 구현
+            interact(actor) {
+                if (!this.isAlive()) {
+                    log(`💤 쓰러진 [${this.name}]은(는) 아무 반응이 없습니다.`, 'log-info');
+                    return;
+                }
+                log(`💬 [${actor.name}]이(가) [${this.name}]에게 말을 걸었습니다: "크르르... 인간 놈, 각오해라!"`, 'log-info');
+            }
+        }
+
+        /** 구체 사물 1: 치유의 샘 (Prop 상속 + IInteractable 구현) */
+        class HealingFountain extends Prop {
+            constructor() {
+                super("치유의 샘", "신비한 빛이 감도는 샘물입니다.");
+                this.uses = 2;
+            }
+
+            // IInteractable 구현
+            interact(actor) {
+                if (this.uses > 0) {
+                    this.uses--;
+                    log(`⛲ [${actor.name}]이(가) [${this.name}]의 물을 마셨습니다. (남은 횟수: ${this.uses})`, 'log-heal');
+                    actor.heal(40);
+                } else {
+                    log(`🏜️ [${this.name}]이(가) 메말라 더 이상 사용할 수 없습니다.`, 'log-info');
+                }
+            }
+        }
+
+        /** 구체 사물 2: 폭발하는 나무통 (Prop 상속 + IDamageable & IInteractable 동시 구현) */
+        class ExplosiveBarrel extends Prop {
+            constructor() {
+                super("화약 나무통", "충격을 주면 폭발할 것 같은 위험한 통입니다.");
+                this.hp = 20;
+                this.exploded = false;
+            }
+
+            isAlive() { return !this.exploded; }
+
+            // IDamageable 구현: 공격받으면 폭발하여 주변(몬스터들)에 광역 피해
+            takeDamage(amount) {
+                if (this.exploded) return;
+                this.hp -= amount;
+                log(`🛢️ [${this.name}]이(가) ${amount}의 충격을 받았습니다!`, 'log-damage');
+                if (this.hp <= 0) {
+                    this.exploded = true;
+                    log(`💣 콰광!! [${this.name}]이(가) 대폭발을 일으켰습니다!`, 'log-damage');
+                    // 전장의 모든 IDamageable 몬스터에게 광역 피해
+                    fieldEntities.forEach(entity => {
+                        if (entity instanceof Monster && entity.isAlive()) {
+                            entity.takeDamage(35);
+                        }
+                    });
+                }
+            }
+
+            // IInteractable 구현: 조심스럽게 조사하기
+            interact(actor) {
+                if (this.exploded) {
+                    log(`💨 불타버린 나무통의 잔해만 남아있습니다.`, 'log-info');
+                } else {
+                    log(`🔍 [${actor.name}]이(가) [${this.name}]을(를) 살펴봅니다: "공격해서 터뜨리면 적들에게 큰 피해를 줄 수 있겠어!"`, 'log-info');
+                }
+            }
+        }
+
+        // ==========================================
+        // 4. 게임 상태 관리 및 UI 렌더링
+        // ==========================================
+        let currentHero = null;
+        let fieldEntities = [];
+
+        function log(message, className = '') {
+            const logBox = document.getElementById('log-box');
+            const p = document.createElement('div');
+            p.textContent = message;
+            if (className) p.className = className;
+            logBox.appendChild(p);
+            logBox.scrollTop = logBox.scrollHeight;
+        }
+
+        function selectHero(type) {
+            document.getElementById('log-box').innerHTML = '';
+            if (type === 'Warrior') {
+                currentHero = new Warrior("아서스");
+            } else {
+                currentHero = new Mage("제이나");
+            }
+
+            // 다형성 배열: Monster(Character)와 Prop 자식들이 한 배열에 공존
+            fieldEntities = [
+                new Monster("고블린 척후병", 60, 10),
+                new Monster("오크 전사", 110, 18),
+                new ExplosiveBarrel(),
+                new HealingFountain()
+            ];
+
+            log(`✨ [${currentHero.name}]이(가) 전장에 입장했습니다!`, 'log-info');
+            render();
+        }
+
+        // 플레이어 행동 처리 후 몬스터 턴 진행
+        function handleAction(actionType, targetIndex) {
+            if (!currentHero || !currentHero.isAlive()) return;
+            const target = fieldEntities[targetIndex];
+
+            if (actionType === 'attack') {
+                currentHero.attack(target);
+            } else if (actionType === 'skill') {
+                currentHero.useSkill(target);
+            } else if (actionType === 'interact') {
+                // 다형성 상호작용: 대상이 무엇이든 IInteractable이면 동일하게 호출
+                if (implementsInterface(target, IInteractable)) {
+                    target.interact(currentHero);
+                }
+            }
+
+            // 몬스터들의 반격 턴
+            setTimeout(() => {
+                if (currentHero.isAlive()) {
+                    fieldEntities.forEach(entity => {
+                        if (entity instanceof Monster && entity.isAlive()) {
+                            entity.attack(currentHero);
+                        }
+                    });
+                }
+                render();
+            }, 300);
+
+            render();
+        }
+
+        function render() {
+            // 영웅 UI 렌더링
+            const heroArea = document.getElementById('hero-area');
+            if (!currentHero) return;
+            const heroHpPercent = (currentHero.hp / currentHero.maxHp) * 100;
+            heroArea.innerHTML = `
+                <div class="entity-card ${!currentHero.isAlive() ? 'dead' : ''}">
+                    <h3>${currentHero.name} (${currentHero.constructor.name})</h3>
+                    <div>HP: ${currentHero.hp} / ${currentHero.maxHp} | 공격력: ${currentHero.attackPower}</div>
+                    <div class="hp-bar"><div class="hp-fill" style="width: ${heroHpPercent}%"></div></div>
+                    <div>스킬: ${currentHero.skillName}</div>
+                </div>
+            `;
+
+            // 전장 대상 UI 렌더링 (인터페이스 구현 여부에 따라 버튼 자동 생성)
+            const fieldArea = document.getElementById('field-area');
+            fieldArea.innerHTML = '';
+
+            fieldEntities.forEach((entity, idx) => {
+                const isProp = entity instanceof Prop;
+                const canDamage = implementsInterface(entity, IDamageable) && entity.isAlive();
+                const canInteract = implementsInterface(entity, IInteractable);
+                const isDead = typeof entity.isAlive === 'function' && !entity.isAlive();
+
+                let hpHtml = '';
+                if (entity instanceof Character) {
+                    const hpPct = (entity.hp / entity.maxHp) * 100;
+                    hpHtml = `
+                        <div>HP: ${entity.hp} / ${entity.maxHp} | 공격력: ${entity.attackPower}</div>
+                        <div class="hp-bar"><div class="hp-fill enemy" style="width: ${hpPct}%"></div></div>
+                    `;
+                } else if (entity instanceof Prop) {
+                    hpHtml = `<div style="font-size: 13px; color: #bac2de; margin: 5px 0;">${entity.description}</div>`;
+                }
+
+                // 인터페이스 기반 동적 버튼 생성 (다형성)
+                let buttonsHtml = '';
+                if (currentHero.isAlive()) {
+                    if (canDamage) {
+                        buttonsHtml += `<button onclick="handleAction('attack', ${idx})">⚔️ 공격</button>`;
+                        buttonsHtml += `<button class="skill" onclick="handleAction('skill', ${idx})">✨ 스킬</button>`;
+                    }
+                    if (canInteract) {
+                        buttonsHtml += `<button class="interact" onclick="handleAction('interact', ${idx})">🤝 상호작용</button>`;
+                    }
+                }
+
+                fieldArea.innerHTML += `
+                    <div class="entity-card ${isProp ? 'prop' : ''} ${isDead ? 'dead' : ''}">
+                        <strong>${entity.name}</strong> <small>[${entity.constructor.name}]</small>
+                        ${hpHtml}
+                        <div>${buttonsHtml}</div>
+                    </div>
+                `;
+            });
+        }
+
+        // 초기 실행
+        selectHero('Warrior');
+    </script>
+</body>
+</html>

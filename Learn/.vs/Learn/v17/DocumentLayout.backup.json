@@ -5,26 +5,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|c:\\ksy\\gameprogram\\csharplearn\\learn\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|c:\\ksy\\gameprogram\\csharplearn\\learn\\wavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|solutionrelative:wavemanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|c:\\ksy\\gameprogram\\csharplearn\\learn\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|solutionrelative:player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|c:\\ksy\\gameprogram\\csharplearn\\learn\\monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|solutionrelative:monster.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|c:\\ksy\\gameprogram\\csharplearn\\learn\\bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|solutionrelative:bullet.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|c:\\ksy\\gameprogram\\csharplearn\\learn\\ai\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}",
-      "RelativeMoniker": "D:0:0:{8ED0FD40-E8F8-42A9-AE43-E18BE61F15B7}|Learn.csproj|solutionrelative:ai\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md||{EFC0BB08-EA7D-40C6-A696-C870411A895B}"
     }
   ],
   "DocumentGroupContainers": [
@@ -44,74 +24,9 @@
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAD0AAAAAAAAAAAAAwFUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T12:08:17.402Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "WaveManager.cs",
-              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\WaveManager.cs",
-              "RelativeDocumentMoniker": "WaveManager.cs",
-              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\WaveManager.cs",
-              "RelativeToolTip": "WaveManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAASAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T12:07:23.413Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Player.cs",
-              "RelativeDocumentMoniker": "Player.cs",
-              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Player.cs",
-              "RelativeToolTip": "Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T12:07:22.66Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Monster.cs",
-              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Monster.cs",
-              "RelativeDocumentMoniker": "Monster.cs",
-              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Monster.cs",
-              "RelativeToolTip": "Monster.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T12:07:21.829Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Bullet.cs",
-              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Bullet.cs",
-              "RelativeDocumentMoniker": "Bullet.cs",
-              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\Bullet.cs",
-              "RelativeToolTip": "Bullet.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAADwvwAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-11-24T12:07:20.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "AI\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md",
-              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\AI\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md",
-              "RelativeDocumentMoniker": "AI\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md",
-              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\Learn\\AI\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md",
-              "RelativeToolTip": "AI\uAC8C\uC784\uD504\uB86C\uD504\uD2B8.md",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001818|",
-              "WhenOpened": "2026-11-24T11:57:52.52Z",
+              "WhenOpened": "2026-11-25T11:47:07.401Z",
               "EditorCaption": ""
             }
           ]
