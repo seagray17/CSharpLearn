@@ -1,0 +1,15 @@
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\bin\Debug\net9.0\ConsoleGame.exe
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\bin\Debug\net9.0\ConsoleGame.deps.json
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\bin\Debug\net9.0\ConsoleGame.runtimeconfig.json
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\bin\Debug\net9.0\ConsoleGame.dll
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\bin\Debug\net9.0\ConsoleGame.pdb
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.GeneratedMSBuildEditorConfig.editorconfig
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.AssemblyInfoInputs.cache
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.AssemblyInfo.cs
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.csproj.CoreCompileInputs.cache
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.sourcelink.json
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.dll
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\refint\ConsoleGame.dll
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.pdb
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ConsoleGame.genruntimeconfig.cache
+C:\KSY\GameProgram\CSharpLearn\ConsoleGameEngine\ConsoleGame\obj\Debug\net9.0\ref\ConsoleGame.dll

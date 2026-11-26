@@ -7,4 +7,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="만들면서클래스배우기.cs" />
+  </ItemGroup>
+
 </Project>

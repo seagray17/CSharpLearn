@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{024B61A6-9E58-4A29-8BB5-5869269E7AD9}|ConsoleGame\\ConsoleGame.csproj|c:\\ksy\\gameprogram\\csharplearn\\consolegameengine\\consolegame\\star.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{024B61A6-9E58-4A29-8BB5-5869269E7AD9}|ConsoleGame\\ConsoleGame.csproj|solutionrelative:consolegame\\star.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{024B61A6-9E58-4A29-8BB5-5869269E7AD9}|ConsoleGame\\ConsoleGame.csproj|c:\\ksy\\gameprogram\\csharplearn\\consolegameengine\\consolegame\\mygameengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{024B61A6-9E58-4A29-8BB5-5869269E7AD9}|ConsoleGame\\ConsoleGame.csproj|solutionrelative:consolegame\\mygameengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{024B61A6-9E58-4A29-8BB5-5869269E7AD9}|ConsoleGame\\ConsoleGame.csproj|c:\\ksy\\gameprogram\\csharplearn\\consolegameengine\\consolegame\\basegameengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{024B61A6-9E58-4A29-8BB5-5869269E7AD9}|ConsoleGame\\ConsoleGame.csproj|solutionrelative:consolegame\\basegameengine.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "star.cs",
+              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\ConsoleGame\\star.cs",
+              "RelativeDocumentMoniker": "ConsoleGame\\star.cs",
+              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\ConsoleGame\\star.cs",
+              "RelativeToolTip": "ConsoleGame\\star.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-26T12:39:15.722Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "BaseGameEngine.cs",
+              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\ConsoleGame\\BaseGameEngine.cs",
+              "RelativeDocumentMoniker": "ConsoleGame\\BaseGameEngine.cs",
+              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\ConsoleGame\\BaseGameEngine.cs",
+              "RelativeToolTip": "ConsoleGame\\BaseGameEngine.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAATAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-26T12:31:10.714Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MyGameEngine.cs",
+              "DocumentMoniker": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\ConsoleGame\\MyGameEngine.cs",
+              "RelativeDocumentMoniker": "ConsoleGame\\MyGameEngine.cs",
+              "ToolTip": "C:\\KSY\\GameProgram\\CSharpLearn\\ConsoleGameEngine\\ConsoleGame\\MyGameEngine.cs",
+              "RelativeToolTip": "ConsoleGame\\MyGameEngine.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAACQAAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-11-26T12:30:42.891Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
